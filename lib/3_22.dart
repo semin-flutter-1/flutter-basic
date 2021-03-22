@@ -45,7 +45,7 @@ void main() {
   double tax = 1.1;   // 세금
   int fax = 5;  // 팩스 가격 (5.5)
   print('5만원짜리를 4만원으로 할인합니다.');
-  tax = 4;
+  fax = 4;
   print('팩스의 새로운 가격은(세금포함) ${fax * tax}만원!');
   // 4.4
 }
