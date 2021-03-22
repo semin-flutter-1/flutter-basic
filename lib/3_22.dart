@@ -1,4 +1,4 @@
-import 'dart:math';   // import문 : 수학관련된 패키지를 사용 선언
+import 'dart:math';   // import 문 : 수학관련된 패키지를 사용 선언
 
 // main 메서드 또는 함수라고 부름
 void main() {
@@ -48,7 +48,7 @@ void main() {
 
   // exam2();
 
-  exam3();
+  controlFlowExam();
 }
 
 // exam1 함수를 만들었다
@@ -76,13 +76,43 @@ void exam2() {
   print(test4);
 }
 
-void exam3() {
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
-  print('내 이름은 한석봉입니다');
+void controlFlowExam() {
+  var names = ['한석봉', '심사임당', '이순신',];
+
+  // 반복문 for 문 : 목록이 있으면
+  for (var name in names) {
+    print('내 이름은 $name입니다');
+  }
+
+  // 1 ~ 12까지 출력
+  // ++ : 1증가
+  for (int month = 1; month <= 12; month++) {
+    print(month);
+  }
+
+  // 100번 실행
+  for (int i = 0; i < 50; i++) {
+    print('내 이름은 오준석');
+  }
+
+  // 조건문
+  int number = 6;
+  // == : 같은지 비교
+  // >, <, >=, <=
+  if (number > 5) {
+    print('5보다 크다');
+  } else if (number > 3) {
+    print('3보다 크다');
+  } else {
+    print('3보다 작다');
+  }
 }
+
+
+
+
+
+
+
+
+
