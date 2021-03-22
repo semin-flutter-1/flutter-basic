@@ -43,6 +43,16 @@ void main() {
   String name3 = ''; // 아무것도 없는 0개의 문자
   String name4; // null
 
+  // exam1 함수를 실행
+  // exam1();
+
+  // exam2();
+
+  exam3();
+}
+
+// exam1 함수를 만들었다
+void exam1() {
   // 팩스 문제
   final double tax = 1.1; // 상수 세금
   int fax = 5; // 팩스 가격 (5.5)
@@ -50,10 +60,29 @@ void main() {
   fax = 4;
   print('팩스의 새로운 가격은(세금포함) ${fax * tax}만원!');
   // 4.4
+}
 
+void exam2() {
+  int a = 10;
+  int b = 20;
   // 연습문제 1-1
   String ccc = '가로 $a, 세로 $b의 직사각형의 면적은 입니다.';
 
+  // https://api.flutter.dev/flutter/dart-math/pi-constant.html
   // 3.141592.... dart:math 패키지에 있는 것 사용
   print(pi);
+
+  String test4 = '\'항구를 공격!\n 적에게\t 15포인트의 데미지를 주었다\'';
+  print(test4);
+}
+
+void exam3() {
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
+  print('내 이름은 한석봉입니다');
 }
