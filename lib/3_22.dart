@@ -1,3 +1,5 @@
+import 'dart:math';   // import문 : 수학관련된 패키지를 사용 선언
+
 // main 메서드 또는 함수라고 부름
 void main() {
   // 잘못된 이름
@@ -35,29 +37,23 @@ void main() {
   var nameList2 = ['홍길동', '한석봉'];
 
   // null (값이 없다)
-  int g;      // null
-  g = 10;   // null이 아니고 10
+  int g; // null
+  g = 10; // null이 아니고 10
 
-  String name3 = '';    // 아무것도 없는 0개의 문자
-  String name4;         // null
+  String name3 = ''; // 아무것도 없는 0개의 문자
+  String name4; // null
 
-
-  final double tax = 1.1;   // 상수 세금
-  int fax = 5;  // 팩스 가격 (5.5)
+  // 팩스 문제
+  final double tax = 1.1; // 상수 세금
+  int fax = 5; // 팩스 가격 (5.5)
   print('5만원짜리를 4만원으로 할인합니다.');
   fax = 4;
   print('팩스의 새로운 가격은(세금포함) ${fax * tax}만원!');
   // 4.4
+
+  // 연습문제 1-1
+  String ccc = '가로 $a, 세로 $b의 직사각형의 면적은 입니다.';
+
+  // 3.141592.... dart:math 패키지에 있는 것 사용
+  print(pi);
 }
-
-
-
-
-
-
-
-
-
-
-
-
