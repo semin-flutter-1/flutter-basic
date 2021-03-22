@@ -1,4 +1,6 @@
-import 'dart:math';   // import 문 : 수학관련된 패키지를 사용 선언
+import 'dart:math';
+
+import 'package:flutter/material.dart';   // import 문 : 수학관련된 패키지를 사용 선언
 
 // main 메서드 또는 함수라고 부름
 void main() {
@@ -48,7 +50,9 @@ void main() {
 
   // exam2();
 
-  controlFlowExam();
+  // controlFlowExam();
+
+  dice();
 }
 
 // exam1 함수를 만들었다
@@ -108,11 +112,8 @@ void controlFlowExam() {
   }
 }
 
-
-
-
-
-
-
-
-
+// 주사위
+void dice() {
+  Random random = Random();
+  print(random.nextInt(6) + 1);  // 1 ~ 6
+}
