@@ -41,4 +41,23 @@ void main() {
   String name3 = '';    // 아무것도 없는 0개의 문자
   String name4;         // null
 
+
+  double tax = 1.1;   // 세금
+  int fax = 5;  // 팩스 가격 (5.5)
+  print('5만원짜리를 4만원으로 할인합니다.');
+  tax = 4;
+  print('팩스의 새로운 가격은(세금포함) ${fax * tax}만원!');
+  // 4.4
 }
+
+
+
+
+
+
+
+
+
+
+
+
