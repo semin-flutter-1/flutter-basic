@@ -5,8 +5,8 @@ void main() {
   int math = 50;
   int english = 70;
 
-  int sum = kor + math + english;
-  double average = sum / 3;
+  int sum = total(kor, math, english);
+  double average = avg(kor, math, english);
 
   print('합계 : $sum');
   print('평균 : ${average.toStringAsFixed(2)}');
