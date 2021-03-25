@@ -14,10 +14,15 @@ void main() {
 
 // Hero 타입을 새로 작성
 class Hero {
+  // field, global variable, 전역변수
   String name;
-  int hp;
+  int hp = 50;
 
   void attack() {
+    // local variable, 지역변수
+    hp = 100;
     print('공격!!!!');
   }
+
+  void run() {}
 }
