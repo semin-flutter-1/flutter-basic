@@ -6,6 +6,10 @@ void main() {
   // 생성자를 통한 초기화
   // 홍길동 영웅 생성
   Hero hero = Hero('홍길동', 50);
+  Hero hero2 = Hero('배트맨', 50);
+
+  // 공동 재산 사용
+  Hero.money = Hero.money - 10;
 
   // 불의검을 생성
   Sword sword = Sword('불의검', 100, 500, '불을 내뿜는다');

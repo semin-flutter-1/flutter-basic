@@ -1,7 +1,15 @@
 // Hero 타입을 새로 작성
 import 'package:flutter_app/equipment/sword.dart';
 
+// 프로그램 전체적으로 공유!!!
+// 좋은 방법 아니다
+// top level 변수
+int money = 100;
+
 class Hero {
+  // 공유자원
+  static int money = 100;
+
   // field, global variable, 전역변수
   String _name;
   int _hp;
