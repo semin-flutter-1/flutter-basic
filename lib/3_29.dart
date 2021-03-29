@@ -36,10 +36,10 @@ void main() {
   print(str2.replaceAll('a', 'A'));   // Abcd
   print(str2.replaceAll('ab', 'ZZ')); // ZZcd
 
-  print(str2.startsWith('ab'));  // true
-  print(str2.startsWith('bb'));  // false
+  print(str2.startsWith('ab'));  // 앞에 ab로 시작하면 true
+  print(str2.startsWith('bb'));  // 앞에 bb로 시작하면 false
 
-  print(str2.endsWith('d'));  // true
+  print(str2.endsWith('d'));  // 끝에 d로 끝나면 true
 
   print(str2.indexOf('c'));   // 2 : 몇 번째 인덱스인지
   print('   abcd    '.trim()); // 좌우 공백 제거

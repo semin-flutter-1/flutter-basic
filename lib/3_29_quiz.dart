@@ -1,13 +1,12 @@
 void main() {
-  Word word = Word('abcdefg');
+  Word dish = Word('dish');
+  print(dish.toPlural()); // dishes
 
-  print(!true);
+  Word cherry = Word('cherry');
+  print(cherry.toPlural()); // cherries
 
-  print(word.isVowel(0)); // true
-  print(word.isVowel(1)); // false
-  print(word.isVowel(2)); // false
-  print(word.isVowel(3)); // false
-  print(word.isVowel(4)); // true
+  Word clock = Word('clock');
+  print(clock.toPlural()); // clocks
 }
 
 class Word {
@@ -18,5 +17,12 @@ class Word {
   // i번째 글자가 모음이면 true  // a, i, u, e, o
   bool isVowel(int i) => 'aiueo'.contains(letters.substring(i, i + 1).toLowerCase());
 
+  // 자음
   bool isConsonant(int i) => !'aiueo'.contains(letters.substring(i, i + 1).toLowerCase());
+
+  // 복수형으로 변환
+  String toPlural() {
+    return '${letters}s';
+  }
+
 }
