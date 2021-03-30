@@ -8,9 +8,16 @@
 import 'dart:io';
 
 void main() {
-  int N = int.parse(stdin.readLineSync());  // 3
+  solution(3);
+  print('');
+  solution(6);
+  print('');
+  solution(4);
+  print('');
+}
 
-  for (int i = 0; i < N; i++) {
+String solution(int input) {
+  for (int i = 0; i < input; i++) {
     stdout.write('*');
   }
 }
