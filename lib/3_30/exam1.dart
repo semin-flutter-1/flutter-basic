@@ -5,19 +5,20 @@
 //
 // 6
 // ******
-import 'dart:io';
 
 void main() {
-  solution(3);
-  print('');
-  solution(6);
-  print('');
-  solution(4);
-  print('');
+  Exam exam = Exam();
+  print(exam.solution(3));
+  print(exam.solution(6));
+  print(exam.solution(2));
 }
 
-String solution(int input) {
-  for (int i = 0; i < input; i++) {
-    stdout.write('*');
+class Exam {
+  String solution(int input) {
+    String result = '';
+    for (int i = 0; i < input; i++) {
+      result = result + '*';
+    }
+    return result;
   }
 }
