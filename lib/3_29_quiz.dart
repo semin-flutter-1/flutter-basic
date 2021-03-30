@@ -41,24 +41,26 @@ class Word {
 
   // 복수형으로 변환
   String toPlural() {
+    String result = '${letters}s';
+
     // s, x, ch, sh : -es
     if (letters.endsWith('s') ||
         letters.endsWith('x') ||
         letters.endsWith('ch') ||
         letters.endsWith('sh') ||
         letters.endsWith('o')) {
-      return '${letters}es';
+      result = '${letters}es';
     } else if (letters.endsWith('f')) {
       // f -> ves
-      return '${letters.substring(0, letters.length - 1)}ves';
+      result = '${letters.substring(0, letters.length - 1)}ves';
     } else if (letters.endsWith('fe')) {
       // fe -> ves
-      return '${letters.substring(0, letters.length - 2)}ves';
+      result = '${letters.substring(0, letters.length - 2)}ves';
     } else if (isConsonant(letters.length - 2) && letters.endsWith('y')) {
       // 자음 + y : y -> ies
-      return '${letters.substring(0, letters.length - 1)}ies';
+      result = '${letters.substring(0, letters.length - 1)}ies';
     }
 
-    return '${letters}s';
+    return result;
   }
 }
