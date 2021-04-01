@@ -9,16 +9,9 @@ void main() {
 
 // Leet 클래스
 class Leet {
-  // Map : 자료를 저장하는 방법 중 하나
-  var rule = {
-    'A': '4',
-    'E': '3',
-    'G': '6',
-    'I': '1',
-    'O': '0',
-    'S': '5',
-    'Z': '2',
-  };
+  // 변수의 이름은 명사로 한다. 메서드의 이름은 동사로 시작한다
+  List<String> original = ['A', 'E', 'G', 'I', 'O', 'S', 'Z'];
+  List<String> change = ['4', '3', '6', '1', '0', '5', '2'];
 
   // Leet 클래스를 생성할 때 입력받을 문자열
   String word;
@@ -35,14 +28,15 @@ class Leet {
     for (int i = 0; i < word.length; i++) {
       String ch = word[i]; // 원래의 i번째 한글자
 
-      String converted = rule[ch]; // 변경된 한글자
-
-      if (converted == null) {
-        // 변경했더니 null이면
-        result = result + ch; // 원래 한글자를 붙이고
-      } else {
-        result = result + converted; // null이 아니면 변경된 한글자를 붙인다
+      String converted = ch;
+      for (int j = 0; j < original.length; j++) {
+        if (ch == original[j]) {
+          converted = change[j];
+          break;
+        }
       }
+
+      result += converted;
     }
 
     // 결과를 리턴
