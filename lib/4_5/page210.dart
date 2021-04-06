@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/4_5/image_text.dart';
 
 void main() => runApp(MyApp());
 
@@ -107,56 +108,10 @@ class _Page1State extends State<Page1> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            GestureDetector(
-              onTap: () {
-                print('클릭!!!!!!!');
-                _showDialog();
-              },
-              child: Column(
-                children: [
-                  Image.network(
-                    'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  Text('택시'),
-                ],
-              ),
-            ),
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '버스'),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
           ],
         ),
         SizedBox(
@@ -165,39 +120,9 @@ class _Page1State extends State<Page1> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
-            Column(
-              children: [
-                Image.network(
-                  'https://png.pngtree.com/png-clipart/20190520/original/pngtree-taxi-vector-icon-png-image_3722634.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-                Text('택시'),
-              ],
-            ),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
+            ImageText('https://cdn3.vectorstock.com/i/1000x1000/02/07/taxi-icon-taxi-icon-taxi-vector-20830207.jpg', '택시'),
             SizedBox(
               width: 80,
               height: 80,
@@ -240,16 +165,14 @@ class _Page1State extends State<Page1> {
   }
 
   Widget _buildBottom() {
-    final items = List.generate(10, (i) {
+    final items = List.generate(10, (_) {
       return ListTile(
         leading: Icon(Icons.notifications_none),
         title: Text('[이벤트] 이것은 공지사항입니다'),
       );
     });
 
-    return ListView(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
+    return Column(
       children: items,
     );
   }
