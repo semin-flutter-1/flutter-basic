@@ -37,8 +37,6 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-  //할 일 목록을 저장할 리스트
-  final _items = <Todo>[];
 
 //할 일 문자열 조작을 위한 컨트롤러
   var _todoController = TextEditingController();
@@ -57,10 +55,7 @@ class _TodoListPageState extends State<TodoListPage> {
     CollectionReference query = FirebaseFirestore.instance.collection('todo');
 
     // Map<String, dynamic>
-    var data = {
-      'title': todo.title,
-      'isDone': todo.isDone
-    };
+    var data = {'title': todo.title, 'isDone': todo.isDone};
 
     await query.add(data);
 
@@ -74,17 +69,20 @@ class _TodoListPageState extends State<TodoListPage> {
   void _deleteTodo(DocumentSnapshot todo) {
     CollectionReference query = FirebaseFirestore.instance.collection('todo');
 
-    query.doc(todo.id)
+    query
+        .doc(todo.id)
         .delete()
         .then((value) => print('성공'))
         .catchError((error) => print('실패'));
   }
 
   //할 일 완료/미완료 메서드
-  void _toggleTodo(Todo todo) {
-    setState(() {
-      todo.isDone = !todo.isDone;
-    });
+  void _toggleTodo(DocumentSnapshot doc) {
+    CollectionReference query = FirebaseFirestore.instance.collection('todo');
+
+    bool currentIsDone = doc['isDone'];
+
+    query.doc(doc.id).update({'isDone': !currentIsDone});
   }
 
   @override
@@ -113,19 +111,20 @@ class _TodoListPageState extends State<TodoListPage> {
               ],
             ),
             StreamBuilder<QuerySnapshot>(
-              stream: query.snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return CircularProgressIndicator();
-                }
-                final documents = snapshot.data.docs;
-                return Expanded(
-                  child: ListView(
-                    children: documents.map((doc) => _buildItemWidget(doc)).toList(),
-                  ),
-                );
-              }
-            ),
+                stream: query.snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator();
+                  }
+                  final documents = snapshot.data.docs;
+                  return Expanded(
+                    child: ListView(
+                      children: documents
+                          .map((doc) => _buildItemWidget(doc))
+                          .toList(),
+                    ),
+                  );
+                }),
           ],
         ),
       ),
@@ -135,7 +134,7 @@ class _TodoListPageState extends State<TodoListPage> {
   Widget _buildItemWidget(DocumentSnapshot doc) {
     final todo = Todo(doc['title'], isDone: doc['isDone']);
     return ListTile(
-      onTap: () => _toggleTodo(todo), //완료 미완료
+      onTap: () => _toggleTodo(doc), //완료 미완료
       title: Text(
         todo.title,
         style: todo.isDone
