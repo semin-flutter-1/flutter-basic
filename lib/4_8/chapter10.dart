@@ -50,21 +50,23 @@ class _TodoListPageState extends State<TodoListPage> {
   }
 
   //할 일 추가 메서드
-  void _addTodo(Todo todo) {
+  Future<void> _addTodo(Todo todo) async {
     // 콜백 callback 방식
     // Promise
     // 단점 : 콜백지옥에 빠질 수 있다
     CollectionReference query = FirebaseFirestore.instance.collection('todo');
-    query.add({
+
+    // Map<String, dynamic>
+    var data = {
       'title': todo.title,
       'isDone': todo.isDone
-    }).then((DocumentReference value) {
-      setState(() {
-        // _items.add(todo);
-        _todoController.text = '';
-      });
-    }).catchError((error) {
-      // 다이얼로그 띄우기
+    };
+
+    await query.add(data);
+
+    setState(() {
+      // _items.add(todo);
+      _todoController.text = '';
     });
   }
 
