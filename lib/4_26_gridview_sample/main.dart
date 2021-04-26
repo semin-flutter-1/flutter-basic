@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/4_26_gridview_sample/model/realtime_arrival_list.dart';
 import 'package:flutter_app/4_26_gridview_sample/model/subway_result.dart';
 import 'package:flutter_app/4_26_gridview_sample/widget/Subway.dart';
 
@@ -23,13 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  SubwayResult _result;
-
-  @override
-  void initState() {
-    _result = SubwayResult();   // 데이터 받았다 치고
-    super.initState();
-  }
+  List<RealtimeArrivalList> _result = [];
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisCount: 2,
         childAspectRatio: 3 / 5,
         children: _result
-            .realtimeArrivalList
-            .map((e) => Subway(e)).toList(),
+            .map((e) => Subway(e))
+            .toList(),
       ),
     );
   }
